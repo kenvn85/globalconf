@@ -128,10 +128,6 @@ func (g *GlobalConf) Parse() {
 		})
 		set.VisitAll(func(f *flag.Flag) {
 			// if not already set, set it from dict if exists
-			if alreadySet[f.Name] {
-				return
-			}
-
 			val := getEnv(g.EnvPrefix, name, f.Name)
 			if val != "" {
 				set.Set(f.Name, val)
